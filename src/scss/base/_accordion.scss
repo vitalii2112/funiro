@@ -1,0 +1,51 @@
+.accordion {
+  display: flex;
+  gap: 20px 80px;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    width: 100%;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $gray-200;
+    font-family: 'Gilroy Bold', sans-serif;
+    margin-top: 0;
+    @include fluid-type(320px, 1440px, 20px, 24px);
+
+    &.hidden {
+      svg {
+        display: none;
+      }
+    }
+
+    svg {
+      transition: .1s ease-in-out;
+    }
+  }
+  &__body {
+    & > div {
+      margin-top: 16px;
+      color: $gray-200;
+      transition: .1s ease-in-out;
+      cursor: pointer;
+
+      @media (hover: hover) {
+        &:hover {
+          color: $gray-300;
+        }
+      }
+    }
+  }
+}
+
+.accordion__item_show .accordion__header svg,
+.accordion__item_slidedown .accordion__header svg {
+  transform: rotate(-180deg);
+}
+
+.accordion__item:not(.accordion__item_show) .accordion__body {
+  display: none;
+}

@@ -1,0 +1,33 @@
+.tips {
+  margin: 40px auto;
+  h2 {
+    color: $gray-100;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .swiper-slide {
+    background-color: $white;
+    transition: .1s ease-in-out;
+    height: auto;
+    &-active {
+      box-shadow: 0 0 15px 17px rgb(97 97 97 / 20%);
+    }
+  }
+
+  &__slider {
+    padding: 30px 0 0 !important;
+    &__img {
+      width: 100%;
+    }
+    &__description {
+      max-width: 400px;
+      color: $gray-100;
+      padding: 15px;
+    }
+    &__date {
+      color: $gray-300;
+      padding: 0 15px 15px;
+    }
+  }
+}

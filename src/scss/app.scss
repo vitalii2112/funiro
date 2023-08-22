@@ -1,0 +1,107 @@
+/* Core variables */
+@import 'base/vars';
+@import 'base/fonts';
+@import 'base/mixin';
+@import 'base/slider';
+@import 'base/accordion';
+/* CSS Reset */
+@import 'base/reset';
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #DAE1E8;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+  background-color: #B7C3CE;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 120%;
+}
+
+h1, h2 {
+  font-family: "Gilroy Bold", sans-serif;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Gilroy Semibold", sans-serif;
+}
+
+h1 {
+  @include fluid-type(320px, 1440px, 24px, 56px)
+}
+
+h2 {
+  @include fluid-type(320px, 1440px, 24px, 40px);
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  @include fluid-type(320px, 1440px, 22px, 28px)
+}
+
+h5 {
+  @include fluid-type(320px, 1440px, 20px, 24px);
+}
+
+h6 {
+  font-size: 20px;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px;
+
+  @media (max-width: 1440px) {
+    padding: 0 15px;
+  }
+}
+
+.xl {
+  font-family: 'Gilroy Semibold', sans-serif;
+  @include fluid-type(320px, 1440px, 16px, 20px);
+}
+
+.lg {
+  font-family: 'Gilroy Semibold', sans-serif;
+  @include fluid-type(320px, 1440px, 16px, 20px);
+}
+.md {
+  font-size: 16px;
+  font-family: 'Gilroy Medium', sans-serif;
+}
+.sm {
+  font-size: 14px;
+  font-family: 'Gilroy Regular', sans-serif;
+}
+
+body {
+  font-family: 'Gilroy Regular', sans-serif;
+  line-height: 150%;
+  font-size: 16px;
+  color: $black;
+  //overflow-x: hidden;
+}
+
+@import "footer";
+
+@import "furniture";
+
+@import "tips";
+
+@import "products";
+
+@import "feature";
+
+@import "header";
+
+@import "main";
+
+@import "rooms";

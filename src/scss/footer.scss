@@ -1,0 +1,99 @@
+.footer {
+  background-color: $white;
+  padding: 80px 100px 50px;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 20px 80px;
+
+  @media (max-width: 1440px) {
+    padding: 80px 15px 50px;
+  }
+
+  &:before {
+    content: "";
+    height: 1px;
+    width: calc(100% - 200px);
+    background-color: $gray-500;
+    position: absolute;
+    top: 0;
+
+    @media (max-width: 1440px) {
+      width: calc(100% - 30px);
+    }
+  }
+
+  &__col {
+    //margin-right: 80px;
+
+    &:first-child {
+      max-width: 250px;
+
+      @media (max-width: 900px) {
+        max-width: unset;
+        width: 100%;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+      flex: 1 1 0;
+    }
+
+    &:not(&:first-child) {
+      li {
+        &:not(&:first-child) {
+          cursor: pointer;
+
+          &:hover {
+            color: $gray-300;
+          }
+        }
+      }
+    }
+
+    & > li {
+      margin-top: 16px;
+      color: $gray-200;
+      transition: .1s ease-in-out;
+
+      &:first-child {
+        font-family: 'Gilroy Bold', sans-serif;
+        margin-top: 0;
+        @include fluid-type(320px, 1440px, 20px, 24px);
+      }
+
+      &.mail {
+        display: inline-flex;
+        height: 45px;
+        width: 100%;
+
+        button {
+          padding: 10px;
+          background-color: $primary;
+          border: none;
+          transition: .1s ease-in-out;
+          cursor: pointer;
+          &:hover {
+            background-color: darken($primary, 10%);
+          }
+        }
+
+        input {
+          padding: 10px 12px;
+          background-color: $light-bg;
+          border: none;
+          font-family: "Gilroy Regular", sans-serif;
+          font-size: 16px;
+          margin-right: 4px;
+          width: 100%;
+          min-width: 240px;
+
+          &::placeholder {
+            color: $gray-300;
+          }
+        }
+      }
+    }
+  }
+}

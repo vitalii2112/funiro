@@ -1,0 +1,184 @@
+.products {
+  margin: 88px auto 44px;
+  h2 {
+    text-align: center;
+    color: $gray-100;
+  }
+
+  .product__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      padding: 12px 82px;
+      color: $primary;
+      border: 1px solid $primary;
+      transition: .1s ease-in-out;
+      background-color: $white;
+      font-family: 'Gilroy Semibold', sans-serif;
+      font-size: 16px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(286px, 1fr));
+    gap: 32px;
+    margin: 32px 0;
+    justify-content: center;
+
+    .product__card {
+      position: relative;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          .product__card__overlay {
+            opacity: 1;
+          }
+        }
+      }
+
+      @media (hover: none) {
+        .product__card__description {
+          padding-bottom: 15px;
+        }
+        .product__card__overlay {
+          opacity: 1;
+          position: unset;
+          height: unset;
+          background-color: $light-bg;
+          align-items: unset;
+          padding: 0 16px 30px;
+        }
+        .product__card__actions {
+          color: $black;
+          justify-content: space-between;
+          max-width: 100%;
+          & > div {
+            &:first-child {
+              svg {
+                fill: $black;
+              }
+            }
+            &:last-child {
+              svg {
+                stroke: $black;
+              }
+            }
+          }
+        }
+      }
+
+      &__btn-add {
+        padding: 12px 58px;
+        color: $primary;
+        background-color: $white;
+        border: none;
+        cursor: pointer;
+        transition: .1s ease-in-out;
+        &:hover {
+          background-color: darken($white, 10%);
+        }
+      }
+
+      &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+        color: $white;
+        max-width: 200px;
+        width: 100%;
+        & > div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          cursor: pointer;
+          transition: .1s ease-in-out;
+          @media (hover: hover) {
+            &:hover {
+              color: $primary;
+              svg {
+                fill: $primary;
+                stroke: $primary;
+              }
+            }
+          }
+          svg {
+            transition: .1s ease-in-out;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &__overlay {
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #3A3A3AB2;
+        z-index: 1;
+        transition: .4s ease-in-out;
+        top: 0;
+        left: 0;
+      }
+      &__description {
+        background-color: $light-bg;
+        padding: 16px 16px 30px;
+        h5 {
+          color: $gray-100;
+        }
+        p {
+          color: $gray-300;
+          margin: 8px 0;
+        }
+      }
+
+      &__label {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: $white;
+        &-discount {
+          background-color: $red;
+        }
+        &-new {
+          background-color: $green;
+        }
+      }
+
+      &__price {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-discount {
+          span:last-child {
+            color: $gray-400;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+.rooms {
+  background-color: #FCF8F3;
+  padding: 44px 0;
+
+  .container {
+    display: flex;
+    @media (max-width: 1050px) {
+      flex-direction: column;
+    }
+  }
+
+  &__titles {
+    max-width: 378px;
+
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    margin-right: 86px;
+
+    @media (max-width: 1050px) {
+      max-width: unset;
+      margin-bottom: 24px;
+      margin-right: 0;
+    }
+
+    h2 {
+      color: $gray-100;
+    }
+
+    p {
+      margin: 8px 0 24px;
+      color: $gray-200;
+    }
+
+    button {
+      align-self: flex-start;
+      background-color: $primary;
+      color: $white;
+      padding: 12px 40px;
+      border: 2px solid $primary;
+      font-family: "Gilroy Semibold", sans-serif;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .1s ease-in-out;
+
+      &:hover {
+        background-color: $white;
+        color: $primary;
+      }
+    }
+  }
+
+  &__slider {
+    overflow-x: visible;
+
+    @media (max-width: 510px) {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100vh;
+      // CSS Grid/Flexbox bug size workaround
+      // @see https://github.com/kenwheeler/slick/issues/982
+      // @see https://github.com/nolimits4web/swiper/issues/3599
+      min-height: 0;
+      min-width: 0;
+    }
+
+    .swiper-slide {
+      position: relative;
+      width: fit-content;
+      height: 580px;
+      @media (max-width: 510px) {
+        height: 100%;
+      }
+      &-active {
+        .rooms__slider {
+          &__info {
+            animation: slideIn 1s forwards;
+          }
+          &__img {
+            @media (min-width: 510px) {
+              max-height: 580px;
+            }
+          }
+        }
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(100%); /* Начальная позиция */
+      }
+      50% {
+        opacity: 1;
+      }
+      to {
+        opacity: 1;
+        transform: translateY(24px); /* Целевая позиция */
+      }
+    }
+
+    &__img {
+      object-fit: cover;
+      max-height: 480px;
+      transition: max-height .5s ease-in-out;
+      @media (max-width: 510px) {
+        max-height: unset;
+        width: 100%;
+      }
+    }
+
+    &__info {
+      opacity: 0;
+      background-color: rgba(255, 255, 255, 0.72);
+      padding: 32px;
+      width: max-content;
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+
+      &__arrow {
+        background-color: $primary;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        right: -48px;
+      }
+
+      &__label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        & > div {
+          &:nth-child(2) {
+            width: 27px;
+            height: 1px;
+            background-color: $gray-200;
+            margin: 0 8px;
+          }
+        }
+      }
+    }
+  }
+}
